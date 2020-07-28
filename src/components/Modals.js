@@ -4,7 +4,6 @@ import { animated, useSpring } from "react-spring";
 import { typeScale, primaryFont } from "../utils";
 import { Illustrations, CloseIcon } from "../assets";
 import { PrimaryButton, SecondaryButton } from "./Buttons";
-import { EmailInput, PasswordInput } from "./TextFields";
 
 const getAnimation = (showModal) => {
   return {
@@ -83,8 +82,6 @@ export const SignInModal = ({ showModal, setShowModal }) => (
     <ColumnModalWrapper>
       <div>
         <ModalHeader>Sign In</ModalHeader>
-        <EmailInput label="Email" placeholder="emmabostian@gmail.com" />
-        <PasswordInput label="Password" />
         <SecondaryButton style={{ margin: "16px 16px 0 0" }}>
           Sign Up
         </SecondaryButton>
