@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { defaultTheme, typeScale, primaryFont } from "../utils";
+import { defaultTheme, typeScale } from "../utils";
 
 const Button = styled.button`
   padding: 8px 12px;
@@ -7,13 +7,13 @@ const Button = styled.button`
   border-radius: 2px;
   min-width: 100px;
   cursor: pointer;
-  font-family: ${primaryFont};
+  font-family: ${defaultTheme.primaryFont};
 `;
 
 const PrimaryButton = styled(Button)`
   background-color: ${defaultTheme.primaryColor};
-  border: none;
-  color: white;
+  color: ${defaultTheme.textColorOnPrimary};
+  border: 2px solid transparent;
 `;
 
 export const SecondaryButton = styled(Button)`
