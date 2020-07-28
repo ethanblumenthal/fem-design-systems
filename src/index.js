@@ -1,44 +1,33 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
-import PrimaryButton, {
-  SecondaryButton,
-  TertiaryButton,
-} from "./components/Buttons";
 import { GlobalStyle, defaultTheme, darkTheme } from "./utils";
+import { SignUpModal, PrimaryButton } from "./components";
 
 const App = () => {
   const [useDarkTheme, setUseDarkTheme] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
       <button
-        style={{
-          margin: "0 16px 24px",
-          padding: "8px",
-          background: "none",
-          cursor: "pointer",
-          border: "2px solid #000",
-          marginTop: "60px",
-        }}
+        style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
         onClick={() => setUseDarkTheme(true)}
       >
         Dark theme
       </button>
       <button
-        style={{
-          margin: "0 16px 24px",
-          padding: "8px",
-          background: "none",
-          cursor: "pointer",
-          border: "2px solid #000",
-          marginTop: "60px",
-        }}
+        style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
         onClick={() => setUseDarkTheme(false)}
       >
         Default theme
       </button>
-
+      <PrimaryButton
+        style={{ margin: "0 16px" }}
+        onClick={() => setShowModal(!showModal)}
+      >
+        Show modal
+      </PrimaryButton>
       <div
         style={{
           background: useDarkTheme
@@ -51,12 +40,10 @@ const App = () => {
           justifyContent: "space-around",
         }}
       >
-        <PrimaryButton modifiers={["small"]}>Hello World</PrimaryButton>
-        <SecondaryButton modifiers={["large"]}>Goodbye World</SecondaryButton>
-        <TertiaryButton>Hey</TertiaryButton>
+        <SignUpModal showModal={showModal} setShowModal={setShowModal} />
+
         <GlobalStyle />
       </div>
-      <GlobalStyle />
     </ThemeProvider>
   );
 };
